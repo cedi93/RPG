@@ -1,0 +1,48 @@
+     /free
+
+     // Definimos un array de números
+     dcl-s numbers packed(3:0) dim(10);
+
+     // Inicializamos el array
+     numbers = %elem('1112233344');
+
+     // Imprimimos los valores del array
+     dsply 'Los valores del array son:';
+     for i = 1 to %elem(numbers);
+       dsply %char(numbers(i));
+     endfor;
+
+     // Buscamos un valor en el array
+     dcl-s searchNum packed(3:0) inz(3);
+     dcl-s found ind inz(*off);
+     for i = 1 to %elem(numbers);
+       if numbers(i) = searchNum;
+         found = *on;
+         break;
+       endif;
+     endfor;
+     if found;
+       dsply 'El número ' + %char(searchNum) + ' está en el array';
+     else;
+       dsply 'El número ' + %char(searchNum) + ' no está en el array';
+     endif;
+
+     *inlr = *on;
+     /end-free
+     
+     _______
+     
+EXPLICACIÓN
+     
+En este ejemplo, se define un array llamado "numbers" que es de tipo "packed" (es decir, que almacena valores numéricos enteros con signo y sin decimales)
+y que tiene una dimensión de 10. Luego se inicializa el array con la función %elem, que toma una cadena de caracteres y la convierte en un array de valores 
+numéricos. En este caso, la cadena es '1112233344', por lo que el array tendrá los valores 1, 1, 1, 2, 2, 3, 3, 3, 4 y 4.
+
+A continuación, se imprime el contenido del array utilizando un bucle for que recorre todos los elementos del array. Se utiliza la función %char para convertir 
+cada elemento numérico en una cadena de caracteres para poder imprimirlo en la pantalla.
+
+Después, se busca un valor en el array utilizando otro bucle for. Se define una variable llamada "searchNum" que almacena el valor que se quiere buscar en el 
+array, y se define otra variable llamada "found" que es un indicador que se utiliza para saber si se encontró el valor buscado. Si se encuentra el valor, se 
+cambia el valor de "found" a *on y se utiliza la instrucción "break" para salir del bucle. Si no se encuentra el valor, "found" sigue siendo *off.
+
+Finalmente, se imprime un mensaje en la pantalla indicando si se encontró o no el valor buscado.
