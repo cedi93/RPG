@@ -1,0 +1,30 @@
+     FMyFile  IF   E           K DISK
+     C                   EVAL      MyField = 'Valor'
+     C     *ENTRY        PLIST
+     C                   PARM                    MyParam
+     C/EXEC SQL
+     C+  SELECT MyColumn
+     C+  INTO :MyVariable
+     C+  FROM MyTable
+     C+  WHERE MyCondition
+     C/END-EXEC
+     C                   SETON                                        
+     LR
+
+
+____________
+EXPLICACIÓN
+
+En este ejemplo, se define un archivo lógico MyFile que se utiliza para acceder a los datos de una base de datos. 
+
+Luego, se define una variable MyField y se asigna el valor 'Valor' a través de una instrucción EVAL.
+
+La subrutina *ENTRY se utiliza para indicar el punto de entrada del programa. 
+
+Se define un parámetro MyParam que se utiliza para recibir valores de entrada en el programa.
+
+La instrucción EXEC SQL se utiliza para iniciar una sección de código SQL. 
+    Dentro de esta sección, se realiza una consulta SELECT que obtiene un valor de la columna MyColumn de la tabla MyTable, 
+    utilizando la condición MyCondition. El valor se guarda en la variable RPG MyVariable utilizando la cláusula INTO.
+    
+Finalmente, se utiliza la instrucción SETON para indicar el final del programa.
