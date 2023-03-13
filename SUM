@@ -1,0 +1,68 @@
+     H NOMAIN                           
+     D ADDNUMS         PR                  
+     D  NUM1                        5  0
+     D  NUM2                        5  0
+     D                 PI              5  0
+     C                   ADD      NUM1 NUM2 SUM
+     C                   RETURN   SUM         
+      /FREE                                  
+       DCL-S NUM1 PACKED(5:0);              
+       DCL-S NUM2 PACKED(5:0);              
+       DCL-S SUM  PACKED(5:0);              
+                                                
+       *INLR = *ON;                         
+       SUM = ADDNUMS(NUM1:NUM2);             
+                                                
+       DSPLY 'The sum is: ' + %CHAR(SUM);    
+      /END-FREE                              
+ 
+     ________________________________________________________
+     
+     EXPLICACIÓN DETALLADA
+     
+     
+     *este programa comienza con una declaración de cabecera que indica que este programa no se llama desde otro programa (NOMAIN).
+     /*esta línea es la declaración de cabecera del programa. "H" indica que esta es una declaración de cabecera y "NOMAIN" indica que 
+     este programa no se llama desde otro programa.*/
+     
+     H NOMAIN
+     
+     *se define una función llamada ADDNUMS que toma dos parámetros de entrada (NUM1 y NUM2) y devuelve un valor de suma (SUM).
+     /*Estas líneas definen una función llamada ADDNUMS que toma dos parámetros de entrada, NUM1 y NUM2, y devuelve 
+     un valor de suma, SUM. La línea "D ADDNUMS PR" indica que esta es una declaración de prototipo de función. "D NUM1 5 0" indica que NUM1 es
+     un número entero con una longitud de 5 dígitos y sin decimales, y lo mismo se aplica a NUM2. "D PI 5 0" indica que esta es la declaración de 
+     la interfaz del programa. Esto significa que se especifica la lista de parámetros para la función y el tipo de datos que devuelve.*/
+     
+     D ADDNUMS         PR                  
+     D  NUM1                        5  0
+     D  NUM2                        5  0
+     D                 PI              5  0
+     
+     /*estas líneas son el cuerpo de la función ADDNUMS. "ADD" es una instrucción de operación que suma los valores de NUM1 y NUM2 y los almacena en SUM. 
+     "RETURN" devuelve el valor de SUM a la llamada de la función.*/
+     
+     C                   ADD      NUM1 NUM2 SUM
+     C                   RETURN   SUM        
+     
+     *el código real comienza con la cláusula /FREE, que indica el inicio del código RPG libre. Dentro de la cláusula /FREE, se declaran tres variables NUM1, NUM2 y SUM. 
+      /*Estas líneas son el cuerpo principal del programa. La cláusula /FREE indica el inicio del código RPG libre. "DCL-S" se utiliza para declarar variables. 
+      En este caso, declaramos NUM1, NUM2 y SUM como variables de tipo PACKED (enteros sin signo), cada una con una longitud de 5 dígitos. */
+      
+      /FREE                                  
+       DCL-S NUM1 PACKED(5:0);              
+       DCL-S NUM2 PACKED(5:0);              
+       DCL-S SUM  PACKED(5:0);  
+       
+     *se establece el indicador de fin de programa INLR en *ON y se llama a la función ADDNUMS con los valores NUM1 y NUM2.
+     * "*INLR = *ON" se utiliza para establecer el indicador de finalización de programa.
+     
+       *INLR = *ON; 
+       
+     * SUM se establece en el valor devuelto por la función ADDNUMS al pasarle los valores de NUM1 y NUM2.
+      
+       SUM = ADDNUMS(NUM1:NUM2); 
+       
+     *se muestra el resultado en la pantalla.                                           
+       DSPLY 'The sum is: ' + %CHAR(SUM);
+     *la cláusula /END-FREE indica el final del código RPG libre.  
+      /END-FREE                              
