@@ -28,3 +28,4 @@ La instrucción EXEC SQL se utiliza para iniciar una sección de código SQL.
     utilizando la condición MyCondition. El valor se guarda en la variable RPG MyVariable utilizando la cláusula INTO.
     
 Finalmente, se utiliza la instrucción SETON para indicar el final del programa.
+
